@@ -8,8 +8,6 @@ exhentai-downloader
 
 ## Instructions 
 
-***
-
 ### Before Use
 
 * Install Python and dependent moudles
