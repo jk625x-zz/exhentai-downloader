@@ -1,19 +1,29 @@
-#EX站下载器
+exhentai-downloader
+==========
 
-## 使用
+> Disclaimer: This project is intended to study the Scrapy Spider Framework , it cannot be used for commercial or other personal intentions. If used improperly, it will be the individuals bear.
+
+*exhentai-downloader* is a command-line program to download images from exhentai (e-hentai will be support later). It requires Python 2.7 to run and works on Unix-like systems as well as on Windows.
+
+
+## Instructions 
+
+***
+
+### Before Use
+
+* Install Python and dependent moudles
+* Install Scrapy
+* Modify the configuration in Setting.py, fill the path you want to store in 'FILES_STORE' 
+
+### Start Up
 
 ```shell
-pip install Scrapy
-git clone https://github.com/jk625x/exhentai-downloader.git
-cd exhentai-downloader
-python main.py
+$ cd exhentai-downloader
+$ python main.py
 ```
+Then follow the instructions in terminal.
 
-### 配置文件
-exhentai-downloader/Setting.py中
-修改 FILES_STORE 为保存路径
-
-### 交互模式
 
 
 ***

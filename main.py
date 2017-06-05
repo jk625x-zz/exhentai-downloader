@@ -16,7 +16,7 @@ def main():
         'keyword' : raw_input('关键字:'),
         'star' : float(raw_input('最少星标(默认为0，最大为5 输入值可包含两位小数):') or "0"),
         'fav': int(raw_input('最少收藏数（默认为0）:') or "0"),
-        'start_page' : int(raw_input('从第几页下载（默认为1）:') or "1"),
+        'start_page' : int(raw_input('从第几页开始下载（默认为1）:') or "1"),
         'end_page' : int(raw_input('下载至第几页（默认为5）:') or "5"),
         'doujinshi' : (raw_input('是否包含doujinshi（1 包含 / 0 不包含 默认包含）:') or "1" ) == "0" and "off" or "on",
         'manga' : (raw_input('是否包含manga（1 包含 / 0 不包含 默认包含）:') or "1") == "0" and "off" or "on",
@@ -32,7 +32,8 @@ def main():
 
 
     settings = get_project_settings()
-    configure_logging(settings)
+#    disable the scrapy log
+#    configure_logging(settings)
 
     runner = CrawlerRunner(settings)
     runner.crawl(ExHentaiSpider,

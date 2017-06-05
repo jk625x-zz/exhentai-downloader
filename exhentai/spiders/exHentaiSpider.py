@@ -32,6 +32,7 @@ class ExHentaiSpider(scrapy.Spider):
                               callback=self.second_login,
                               dont_filter=True)]
 
+    # need the step 2 to fetch complete cookies 
     def second_login(self, response):
         print 'Scraw Start'
         return[scrapy.Request(
@@ -78,12 +79,13 @@ class ExHentaiSpider(scrapy.Spider):
         fav = int((response.xpath('//td[@id="favcount"]/text()').re(r'[0-9]+') or ['1'])[0])
         star = float(response.xpath('//td[@id="rating_label"]/text()').re(r'[0-9]+\.[0-9]+')[0])
         if fav < self.rule['fav'] or star < self.rule['star']:
-            print 'title:' + title
-            print 'favourite: ' + fav + ' , ' + 'stars: ' + star + '-Dropped-'
+            print '-Dropped-' + 'title:' + title
+            print 'favourite: ' + fav + ' , ' + 'stars: ' + star
             return
 
-        print 'title:' + title
-        print 'favourite: ' + fav + ' , ' + 'stars: ' + star + '-Dowloading-'
+        print '-Dowloading-' + 'title:' + title
+        print 'favourite: ' + fav + ' , ' + 'stars: ' + star 
+
         if next != None:
             yield scrapy.Request(next,
                                 callback=self.parse_article,

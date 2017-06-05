@@ -8,7 +8,6 @@ from scrapy.exceptions import DropItem
 from scrapy.pipelines.files import FilesPipeline
 
 
-
 class EXImagePipeline(FilesPipeline):
     def get_media_requests(self, item, info):
         yield scrapy.Request(item['image_urls'],
@@ -22,6 +21,7 @@ class EXImagePipeline(FilesPipeline):
         item["file_paths"] = file_paths
         return item
 
+    # get file name from url
     def file_path(self, request, response=None, info=None):
         title = request.meta['title']
         file_guid = title + '/' + request.url.split('/')[-1]
