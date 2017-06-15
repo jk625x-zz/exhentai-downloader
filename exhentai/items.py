@@ -13,4 +13,6 @@ class ImageItem(scrapy.Item):
     title = scrapy.Field()
     image_urls = scrapy.Field()
     images = scrapy.Field()
+    cookies = scrapy.Field()
+    file_paths = scrapy.Field()
 

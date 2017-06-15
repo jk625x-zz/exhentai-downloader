@@ -14,6 +14,7 @@ def main():
     password = getpass.getpass('密码:')
     rule = {
         'keyword' : raw_input('关键字:'),
+        'ori' : int(raw_input('是否尝试下载原图 （1 原图 / 0 缩略图）:') or "0"),
         'star' : float(raw_input('最少星标(默认为0，最大为5 输入值可包含两位小数):') or "0"),
         'fav': int(raw_input('最少收藏数（默认为0）:') or "0"),
         'start_page' : int(raw_input('从第几页开始下载（默认为1）:') or "1"),
@@ -33,7 +34,7 @@ def main():
 
     settings = get_project_settings()
 #    disable the scrapy log
-#    configure_logging(settings)
+#     configure_logging(settings)
 
     runner = CrawlerRunner(settings)
     runner.crawl(ExHentaiSpider,

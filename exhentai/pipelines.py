@@ -12,6 +12,7 @@ class EXImagePipeline(FilesPipeline):
     def get_media_requests(self, item, info):
         yield scrapy.Request(item['image_urls'],
                                  meta={
+                                     'cookiejar': item['cookies'],
                                      'title': item["title"]})
 
     def item_completed(self, results, item, info):
@@ -24,6 +25,6 @@ class EXImagePipeline(FilesPipeline):
     # get file name from url
     def file_path(self, request, response=None, info=None):
         title = request.meta['title']
-        file_guid = title + '/' + request.url.split('/')[-1]
+        file_guid = title + '/' + request.url.split('/')[-1].split('?')[0]
         filename = u'{0}'.format(file_guid)
         return filename

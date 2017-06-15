@@ -6,7 +6,7 @@ SPIDER_MODULES = ['exhentai.spiders']
 NEWSPIDER_MODULE = 'exhentai.spiders'
 
 
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 CONCURRENT_REQUESTS = 16 # it seems OK
 DOWNLOAD_DELAY = 3
 RANDOMIZE_DOWNLOAD_DELAY = True
@@ -20,6 +20,8 @@ DOWNLOADER_MIDDLEWARES = {
         'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware' : None,
         'exhentai.middlewares.RotateUserAgentMiddleware' :400
 }
+
+MEDIA_ALLOW_REDIRECTS = True
 
 FILES_STORE = "/Users/jk_625/pic"
 
